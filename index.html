@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en" class="loading">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Shield - Dark Pattern & Tracker Detector</title>
+    <meta name="description" content="Detect fingerprinting, trackers, and manipulative dark patterns on any website. 100% local processing, no data collection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* FOUC Prevention - hide everything until ready */
+      html.loading { visibility: hidden; }
+      html.loading * { animation: none !important; transition: none !important; }
+      /* Hide animated elements by default */
+      .fade-in, .slide-in-left, .slide-in-right, .scale-in { opacity: 0; }
+      .stagger-children > * { opacity: 0; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-BLLbM8l3.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cak5CF8h.css">
+  </head>
+  <body>
+    <!-- Hexagon Mesh Overlay - unique to Privacy Shield -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="container header-content">
+        <a href="#" class="logo">
+          <div class="logo-icon">PS</div>
+          Privacy Shield
+        </a>
+        <nav class="nav">
+          <a href="#modules">Detection</a>
+          <a href="#patterns">Dark Patterns</a>
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#more">More</a>
+        </nav>
+        <a href="#" class="btn btn-magnetic"><span class="btn-text">Get Extension</span></a>
+        <button class="mobile-menu-btn">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Scroll Progress Bar -->
+      <div class="scroll-progress" id="scroll-progress"></div>
+
+      <section class="hero">
+        <!-- Hero Spotlight (follows mouse) -->
+        <div class="hero-spotlight" id="hero-spotlight"></div>
+
+        <!-- Floating Decorative Shapes with Parallax -->
+        <div class="hero-shapes">
+          <div class="shape shape-1" data-parallax="0.05"></div>
+          <div class="shape shape-2" data-parallax="0.08"></div>
+          <div class="shape shape-3" data-parallax="0.03"></div>
+          <div class="shape shape-4" data-parallax="0.06"></div>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+          <div class="hero-badge">
+            <span class="pill">19+</span>
+            Fingerprinting Detection Methods
+          </div>
+          <h1>see what <span class="highlight gradient-text">websites</span> know about you</h1>
+          <p>Comprehensive privacy protection that detects fingerprinting, trackers, and manipulative dark patterns. Know exactly how sites track and manipulate you.</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-lg btn-magnetic"><span class="btn-text">Add to Chrome</span></a>
+            <a href="#" class="btn btn-lg btn-outline btn-magnetic"><span class="btn-text">Add to Firefox</span></a>
+          </div>
+
+          <!-- Privacy Shield Unique: Radar Scanner Visualization -->
+          <div class="radar-demo fade-in">
+            <div class="radar-container">
+              <div class="radar-pulse"></div>
+              <div class="radar-pulse"></div>
+              <div class="radar-pulse"></div>
+              <div class="radar-line"></div>
+              <div class="radar-center">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <!-- Threat nodes around radar -->
+              <div class="radar-threat" style="top: 20%; left: 15%;">
+                <span class="threat-dot high"></span>
+                <span class="threat-label">Tracker</span>
+              </div>
+              <div class="radar-threat" style="top: 30%; right: 20%;">
+                <span class="threat-dot medium"></span>
+                <span class="threat-label">Canvas FP</span>
+              </div>
+              <div class="radar-threat" style="bottom: 25%; left: 25%;">
+                <span class="threat-dot high"></span>
+                <span class="threat-label">Dark Pattern</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Threat Indicators Grid -->
+          <div class="threat-grid fade-in" style="margin-top: 40px;">
+            <div class="threat-indicator block-animation">
+              <span class="threat-dot high"></span>
+              <div>
+                <strong>Google Analytics</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Tracking script detected</span>
+              </div>
+            </div>
+            <div class="threat-indicator block-animation">
+              <span class="threat-dot high"></span>
+              <div>
+                <strong>Canvas Fingerprint</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Unique identifier created</span>
+              </div>
+            </div>
+            <div class="threat-indicator block-animation">
+              <span class="threat-dot medium"></span>
+              <div>
+                <strong>Confirmshaming</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Dark pattern detected</span>
+              </div>
+            </div>
+            <div class="threat-indicator">
+              <span class="threat-dot low"></span>
+              <div>
+                <strong>Local Storage</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Session data only</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keep original score demo -->
+          <div class="score-demo fade-in" style="margin-top: 40px;">
+            <div class="score-card glow-card">
+              <div class="score-circle good">
+                <span class="grade">A</span>
+                <span class="number">92/100</span>
+              </div>
+              <h4>wikipedia.org</h4>
+              <p>Minimal tracking detected</p>
+            </div>
+            <div class="score-card glow-card">
+              <div class="score-circle bad">
+                <span class="grade">D</span>
+                <span class="number">34/100</span>
+              </div>
+              <h4>sketchy-deals.com</h4>
+              <p>12 trackers, 5 dark patterns</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="container">
+          <div class="stats-grid fade-in">
+            <div class="stat-item">
+              <div class="stat-number" data-count="19">19+</div>
+              <div class="stat-label">Fingerprint Methods</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="16">16</div>
+              <div class="stat-label">Dark Pattern Types</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="30">30+</div>
+              <div class="stat-label">Tracker Networks</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="100">100%</div>
+              <div class="stat-label">Local Processing</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Marquee -->
+      <section class="trust-marquee">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="marquee-item">Trusted by privacy advocates</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">100% Local Processing</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">No cloud required</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Zero telemetry</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Open source</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Free forever</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Trusted by privacy advocates</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">100% Local Processing</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">No cloud required</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Zero telemetry</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Open source</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Free forever</span>
+            <span class="marquee-dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="modules" id="modules">
+        <div class="container">
+          <div class="section-header fade-in">
+            <div class="section-badge">Modules</div>
+            <h2>detection engines</h2>
+            <p>Four specialized engines working together to protect your privacy</p>
+          </div>
+          <div class="modules-grid stagger-children">
+            <div class="module-card fingerprint">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                </div>
+                <h3>Fingerprint Detection</h3>
+              </div>
+              <p>Detects 19+ browser fingerprinting techniques used to uniquely identify you across sites without cookies.</p>
+              <div class="module-tags">
+                <span class="module-tag">Canvas</span>
+                <span class="module-tag">WebGL</span>
+                <span class="module-tag">AudioContext</span>
+                <span class="module-tag">Fonts</span>
+                <span class="module-tag">WebRTC</span>
+                <span class="module-tag">+14 more</span>
+              </div>
+            </div>
+            <div class="module-card tracker">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <h3>Tracker Detection</h3>
+              </div>
+              <p>Identifies tracking scripts from major ad networks, analytics services, and data brokers watching you.</p>
+              <div class="module-tags">
+                <span class="module-tag">Google Analytics</span>
+                <span class="module-tag">Facebook Pixel</span>
+                <span class="module-tag">Hotjar</span>
+                <span class="module-tag">Criteo</span>
+              </div>
+            </div>
+            <div class="module-card darkpattern">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.8-.1 2.6-.3"/><circle cx="12" cy="10" r="3"/><path d="M7 20.6c.9-1.6 2.8-2.6 5-2.6s4.1 1 5 2.6"/><path d="M18 15l3 3-3 3"/></svg>
+                </div>
+                <h3>Dark Pattern Scanner</h3>
+              </div>
+              <p>Spots manipulative design patterns that trick you into actions you didn't intend to take.</p>
+              <div class="module-tags">
+                <span class="module-tag">Confirmshaming</span>
+                <span class="module-tag">Fake Urgency</span>
+                <span class="module-tag">Hidden Costs</span>
+                <span class="module-tag">Misdirection</span>
+              </div>
+            </div>
+            <div class="module-card api">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>Sensitive API Monitor</h3>
+              </div>
+              <p>Alerts when pages try to access your camera, microphone, location, clipboard, or notifications.</p>
+              <div class="module-tags">
+                <span class="module-tag">Geolocation</span>
+                <span class="module-tag">Camera</span>
+                <span class="module-tag">Clipboard</span>
+                <span class="module-tag">Storage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dark-patterns" id="patterns">
+        <div class="container">
+          <div class="section-header fade-in">
+            <div class="section-badge">Exposed</div>
+            <h2>dark patterns we detect</h2>
+            <p>16 categories of manipulative UX patterns exposed and highlighted</p>
+          </div>
+          <div class="patterns-grid stagger-children">
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 15h8"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg></span>
+              <h4>Confirmshaming</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <h4>Visual Misdirection</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+              <h4>Fake Urgency</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <h4>Pre-selection</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+              <h4>Hidden Costs</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></span>
+              <h4>Cookie Deception</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="2" rx="1"/><rect x="3" y="3" width="18" height="2" rx="1"/><rect x="3" y="19" width="18" height="2" rx="1"/></svg></span>
+              <h4>Obstruction</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><circle cx="12" cy="16" r="1"/></svg></span>
+              <h4>Sneaking</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="1"/></svg></span>
+              <h4>Trick Questions</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
+              <h4>Disguised Ads</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg></span>
+              <h4>Forced Continuity</h4>
+            </div>
+            <div class="pattern-pill">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+              <h4>Nagging</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="threat-meter">
+        <div class="container">
+          <div class="section-header fade-in">
+            <div class="section-badge">Visualization</div>
+            <h2>privacy threat meter</h2>
+            <p>See your exposure level at a glance</p>
+          </div>
+          <div class="meter-container fade-in">
+            <div class="meter-visual">
+              <div class="meter-bar">
+                <div class="meter-fill" id="meter-fill"></div>
+              </div>
+              <div class="meter-labels">
+                <span>Safe</span>
+                <span>High Risk</span>
+              </div>
+              <div class="meter-stats">
+                <div class="meter-stat">
+                  <div class="number">7</div>
+                  <div class="label">Trackers Found</div>
+                </div>
+                <div class="meter-stat">
+                  <div class="number">3</div>
+                  <div class="label">Fingerprints</div>
+                </div>
+                <div class="meter-stat">
+                  <div class="number">2</div>
+                  <div class="label">Dark Patterns</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="protection-flow">
+        <div class="container">
+          <div class="section-header fade-in">
+            <div class="section-badge">Simple</div>
+            <h2>how it protects you</h2>
+            <p>Real-time protection in three simple steps</p>
+          </div>
+          <div class="flow-steps fade-in">
+            <div class="flow-step">
+              <div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+              <h4>Scan Page</h4>
+              <p>Analyzes all scripts and elements</p>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">
+              <div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+              <h4>Detect Threats</h4>
+              <p>Identifies trackers & patterns</p>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">
+              <div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+              <h4>Show Score</h4>
+              <p>Privacy grade A-F displayed</p>
+            </div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">
+              <div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
+              <h4>Highlight</h4>
+              <p>Marks issues on the page</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="container">
+          <div class="section-header fade-in">
+            <div class="section-badge">Features</div>
+            <h2>powerful features</h2>
+            <p>Everything you need to browse with confidence</p>
+          </div>
+          <div class="features-grid stagger-children">
+            <div class="feature-card">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+              <h3>Privacy Score</h3>
+              <p>Get a 0-100 privacy score and A-F grade for every website you visit.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+              <h3>Element Highlighting</h3>
+              <p>Visual highlighting shows exactly which page elements are problematic.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+              <h3>Statistics Dashboard</h3>
+              <p>Track your browsing privacy over time with detailed analytics.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <h3>Sensitivity Levels</h3>
+              <p>Choose low, medium, or high sensitivity based on your paranoia level.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <h3>Domain Whitelist</h3>
+              <p>Skip scanning on trusted sites you use regularly.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+              <h3>Risk Notifications</h3>
+              <p>Get instant alerts when visiting high-risk websites.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-section" id="privacy">
+        <div class="container privacy-content">
+          <div class="privacy-text slide-in-left">
+            <h2>privacy that protects privacy</h2>
+            <p>It would be ironic if a privacy tool collected your data. We don't. Everything runs 100% locally in your browser. No cloud. No accounts. No telemetry.</p>
+            <p>Your browsing data never leaves your device. Period.</p>
+          </div>
+          <div class="privacy-badges slide-in-right">
+            <div class="privacy-badge">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+              100% Offline
+            </div>
+            <div class="privacy-badge">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span>
+              Zero Telemetry
+            </div>
+            <div class="privacy-badge">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+              No Account
+            </div>
+            <div class="privacy-badge">
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+              Multi-language
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container fade-in">
+          <h2>take back your privacy</h2>
+          <p>Know what websites know about you. Detect manipulation. Browse with confidence.</p>
+          <div class="cta-buttons">
+            <a href="#" class="btn btn-lg">Add to Chrome</a>
+            <a href="#" class="btn btn-lg btn-outline">Add to Firefox</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="more-extensions" id="more">
+        <div class="container">
+          <div class="section-header fade-in">
+            <div class="section-badge">More Tools</div>
+            <h2>explore our other extensions</h2>
+            <p>Privacy-first tools for a better browsing experience</p>
+          </div>
+          <div class="extensions-grid stagger-children">
+            <a href="/real-ink" class="extension-card">
+              <div class="extension-icon">RI</div>
+              <div class="extension-info">
+                <h3>Real Ink?</h3>
+                <p>Detect AI-generated text instantly as you browse any website.</p>
+              </div>
+              <span class="extension-arrow">→</span>
+            </a>
+            <a href="/pixel-proof" class="extension-card">
+              <div class="extension-icon">PP</div>
+              <div class="extension-info">
+                <h3>Pixel Proof</h3>
+                <p>Verify image authenticity and detect AI-generated images instantly.</p>
+              </div>
+              <span class="extension-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            Privacy Shield
+          </div>
+          <div class="footer-links">
+            <a href="#">GitHub</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Open source privacy protection. Made for a safer web.</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
