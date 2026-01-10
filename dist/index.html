@@ -37,7 +37,7 @@
           <a href="#privacy">Privacy</a>
           <a href="#more">More</a>
         </nav>
-        <a href="#" class="btn btn-magnetic"><span class="btn-text">Get Extension</span></a>
+        <a href="https://chromewebstore.google.com/detail/fgmjaanieaemljekjabfodbkogaahjbh?utm_source=item-share-cb" class="btn btn-magnetic" id="get-extension-btn"><span class="btn-text">Get Extension</span></a>
         <button class="mobile-menu-btn">☰</button>
       </div>
     </header>
@@ -534,5 +534,14 @@
       </div>
     </footer>
 
+    <script>
+      (function() {
+        var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
+        var btn = document.getElementById('get-extension-btn');
+        if (btn && isFirefox) {
+          btn.href = 'https://addons.mozilla.org/en-US/firefox/addon/privacy-shield-ext/';
+        }
+      })();
+    </script>
   </body>
 </html>
